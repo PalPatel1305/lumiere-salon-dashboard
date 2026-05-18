@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0d0d0e;color:#e8e0d5;font-family:'DM Sans',sans-serif;min-height:100vh;padding:0}
+  .dash{display:grid;grid-template-rows:auto auto 1fr;min-height:100vh}
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;border-bottom:0.5px solid rgba(255,255,255,0.06)}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:3px;color:#c9b49a}
+  .logo span{color:#fff}
+  .topbar-right{display:flex;align-items:center;gap:20px}
+  .date-badge{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:1px}
+  .notif{width:32px;height:32px;border-radius:50%;border:0.5px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+  .notif i{font-size:15px;color:rgba(255,255,255,0.5)}
+  .notif-dot{width:6px;height:6px;background:#c9b49a;border-radius:50%;position:absolute;top:6px;right:6px}
+  .avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#c9b49a,#8b6f5e);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:#fff}
+  .content{padding:28px 32px;display:flex;flex-direction:column;gap:24px}
+  .page-title{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:400;letter-spacing:2px;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:2px}
+  .page-heading{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#fff;letter-spacing:1px}
+  .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .kpi{background:#141416;border:0.5px solid rgba(255,255,255,0.07);border-radius:12px;padding:20px;position:relative;overflow:hidden;transition:border-color 0.2s}
+  .kpi:hover{border-color:rgba(201,180,154,0.25)}
+  .kpi-accent{position:absolute;top:0;left:0;width:3px;height:100%;background:#c9b49a;opacity:0.6}
+  .kpi-accent.green{background:#6fbf8a}
+  .kpi-accent.red{background:#bf6f6f}
+  .kpi-accent.blue{background:#6f9fbf}
+  .kpi-label{font-size:11px;letter-spacing:1.5px;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:10px;margin-left:12px}
+  .kpi-value{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:#fff;margin-left:12px;line-height:1}
+  .kpi-sub{font-size:11px;color:rgba(255,255,255,0.3);margin-top:6px;margin-left:12px;display:flex;align-items:center;gap:4px}
+  .kpi-sub .up{color:#6fbf8a}
+  .kpi-sub .down{color:#bf6f6f}
+  .mid-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+  .card{background:#141416;border:0.5px solid rgba(255,255,255,0.07);border-radius:12px;padding:22px}
+  .card-title{font-size:11px;letter-spacing:1.5px;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between}
+  .card-title span{font-size:10px;color:#c9b49a;letter-spacing:1px;cursor:pointer}
+  .bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .appt-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:0.5px solid rgba(255,255,255,0.05)}
+  .appt-row:last-child{border-bottom:none}
+  .appt-time{font-size:11px;color:rgba(255,255,255,0.35);width:42px;flex-shrink:0}
+  .appt-avatar{width:30px;height:30px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:#fff}
+  .appt-info{flex:1;min-width:0}
+  .appt-name{font-size:13px;color:#e8e0d5;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .appt-service{font-size:11px;color:rgba(255,255,255,0.3);margin-top:1px}
+  .appt-stylist{font-size:11px;color:rgba(255,255,255,0.25);text-align:right;flex-shrink:0}
+  .status-badge{font-size:10px;padding:3px 8px;border-radius:20px;flex-shrink:0;letter-spacing:0.5px}
+  .status-confirmed{background:rgba(111,191,138,0.1);color:#6fbf8a;border:0.5px solid rgba(111,191,138,0.2)}
+  .status-pending{background:rgba(201,180,154,0.1);color:#c9b49a;border:0.5px solid rgba(201,180,154,0.2)}
+  .status-vip{background:rgba(191,111,111,0.1);color:#bf9f6f;border:0.5px solid rgba(191,160,111,0.2)}
+  .service-bar{margin-bottom:12px}
+  .service-bar:last-child{margin-bottom:0}
+  .service-bar-top{display:flex;justify-content:space-between;margin-bottom:5px}
+  .service-name{font-size:12px;color:rgba(255,255,255,0.6)}
+  .service-pct{font-size:12px;color:rgba(255,255,255,0.35)}
+  .bar-track{height:3px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:2px}
+  .stylist-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .stylist-row:last-child{margin-bottom:0}
+  .stylist-avg{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;color:#fff;flex-shrink:0}
+  .stylist-info{flex:1}
+  .stylist-name{font-size:13px;color:#e8e0d5}
+  .stylist-count{font-size:11px;color:rgba(255,255,255,0.3)}
+  .stylist-rev{font-size:13px;color:rgba(255,255,255,0.5);text-align:right}
+  .stars{color:#c9b49a;font-size:10px;letter-spacing:1px}
+  .chart-wrap{position:relative;width:100%;height:180px}
+  .mini-stat{background:#0d0d0e;border:0.5px solid rgba(255,255,255,0.05);border-radius:8px;padding:14px;display:flex;align-items:center;gap:12px}
+  .mini-stat-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .mini-stat-label{font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:2px}
+  .mini-stat-val{font-size:16px;font-weight:500;color:#fff}
+  .tab-bar{display:flex;gap:4px;margin-bottom:18px}
+  .tab{font-size:11px;letter-spacing:1px;color:rgba(255,255,255,0.3);padding:5px 12px;border-radius:20px;cursor:pointer;transition:all 0.2s}
+  .tab.active{background:rgba(201,180,154,0.12);color:#c9b49a;border:0.5px solid rgba(201,180,154,0.2)}
+</style>
+</head>
+<body>
+<div class="dash">
+  <div class="topbar">
+    <div class="logo">LUMIÈRE <span>STUDIO</span></div>
+    <div class="topbar-right">
+      <div class="date-badge">SATURDAY, MAY 16, 2026</div>
+      <div class="notif"><i class="ti ti-bell"></i><div class="notif-dot"></div></div>
+      <div class="avatar">LP</div>
+    </div>
+  </div>
+  <div class="content">
+    <div>
+      <div class="page-title">Overview</div>
+      <div class="page-heading">Good morning, Lena ✦</div>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Revenue — May</div><div class="kpi-value">$18,430</div><div class="kpi-sub"><span class="up">↑ 18%</span> vs last month</div></div>
+      <div class="kpi"><div class="kpi-accent green"></div><div class="kpi-label">Today's Bookings</div><div class="kpi-value">12</div><div class="kpi-sub">3 remaining · <span style="color:#c9b49a">2 VIP</span></div></div>
+      <div class="kpi"><div class="kpi-accent blue"></div><div class="kpi-label">New Clients</div><div class="kpi-value">34</div><div class="kpi-sub"><span class="up">↑ 7</span> from last month</div></div>
+      <div class="kpi"><div class="kpi-accent red"></div><div class="kpi-label">Cancellation Rate</div><div class="kpi-value">4.2%</div><div class="kpi-sub"><span class="up">↓ 1.1%</span> improvement</div></div>
+    </div>
+    <div class="mid-grid">
+      <div class="card">
+        <div class="card-title">Revenue — Last 7 Days <span>View Report</span></div>
+        <div class="chart-wrap"><canvas id="revenueChart"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Top Services This Month</div>
+        <div class="service-bar"><div class="service-bar-top"><span class="service-name">Balayage & Colour</span><span class="service-pct">38%</span></div><div class="bar-track"><div class="bar-fill" style="width:38%;background:#c9b49a"></div></div></div>
+        <div class="service-bar"><div class="service-bar-top"><span class="service-name">Cut & Style</span><span class="service-pct">27%</span></div><div class="bar-track"><div class="bar-fill" style="width:27%;background:#6f9fbf"></div></div></div>
+        <div class="service-bar"><div class="service-bar-top"><span class="service-name">Keratin Treatment</span><span class="service-pct">18%</span></div><div class="bar-track"><div class="bar-fill" style="width:18%;background:#6fbf8a"></div></div></div>
+        <div class="service-bar"><div class="service-bar-top"><span class="service-name">Extensions</span><span class="service-pct">10%</span></div><div class="bar-track"><div class="bar-fill" style="width:10%;background:#bf9f6f"></div></div></div>
+        <div class="service-bar"><div class="service-bar-top"><span class="service-name">Brow & Lash</span><span class="service-pct">7%</span></div><div class="bar-track"><div class="bar-fill" style="width:7%;background:#9f6fbf"></div></div></div>
+      </div>
+    </div>
+    <div class="bottom-grid">
+      <div class="card">
+        <div class="card-title">Today's Schedule <span>Full Calendar</span></div>
+        <div class="tab-bar"><div class="tab active">All</div><div class="tab">Confirmed</div><div class="tab">Pending</div></div>
+        <div class="appt-row"><div class="appt-time">9:00</div><div class="appt-avatar" style="background:#8b6f5e">SK</div><div class="appt-info"><div class="appt-name">Sofia Kaur</div><div class="appt-service">Balayage + Toner</div></div><div class="appt-stylist">Ines</div><div class="status-badge status-vip">VIP</div></div>
+        <div class="appt-row"><div class="appt-time">10:30</div><div class="appt-avatar" style="background:#5e7a8b">ML</div><div class="appt-info"><div class="appt-name">Maya Laurent</div><div class="appt-service">Cut & Blowdry</div></div><div class="appt-stylist">Priya</div><div class="status-badge status-confirmed">Confirmed</div></div>
+        <div class="appt-row"><div class="appt-time">11:00</div><div class="appt-avatar" style="background:#6b8b5e">TR</div><div class="appt-info"><div class="appt-name">Tara Rosseau</div><div class="appt-service">Keratin Treatment</div></div><div class="appt-stylist">Ines</div><div class="status-badge status-confirmed">Confirmed</div></div>
+        <div class="appt-row"><div class="appt-time">1:00</div><div class="appt-avatar" style="background:#7a5e8b">AN</div><div class="appt-info"><div class="appt-name">Anika Nair</div><div class="appt-service">Extensions Consult</div></div><div class="appt-stylist">Cam</div><div class="status-badge status-pending">Pending</div></div>
+        <div class="appt-row"><div class="appt-time">2:30</div><div class="appt-avatar" style="background:#8b7a5e">JW</div><div class="appt-info"><div class="appt-name">Jade Wu</div><div class="appt-service">Brow Lamination</div></div><div class="appt-stylist">Priya</div><div class="status-badge status-vip">VIP</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Stylists — This Month</div>
+        <div class="stylist-row"><div class="stylist-avg" style="background:#c9b49a">IP</div><div class="stylist-info"><div class="stylist-name">Ines Petit</div><div class="stylist-count">42 appointments</div><div class="stars">★★★★★</div></div><div class="stylist-rev">$6,240</div></div>
+        <div class="stylist-row"><div class="stylist-avg" style="background:#6f9fbf">PM</div><div class="stylist-info"><div class="stylist-name">Priya Mehra</div><div class="stylist-count">38 appointments</div><div class="stars">★★★★★</div></div><div class="stylist-rev">$5,710</div></div>
+        <div class="stylist-row"><div class="stylist-avg" style="background:#6fbf8a">CL</div><div class="stylist-info"><div class="stylist-name">Cam Lee</div><div class="stylist-count">31 appointments</div><div class="stars">★★★★☆</div></div><div class="stylist-rev">$4,180</div></div>
+        <div style="margin-top:20px;padding-top:16px;border-top:0.5px solid rgba(255,255,255,0.05)">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div class="mini-stat"><div class="mini-stat-icon" style="background:rgba(201,180,154,0.1)"><i class="ti ti-clock" style="color:#c9b49a;font-size:15px"></i></div><div><div class="mini-stat-label">Avg Duration</div><div class="mini-stat-val">74 min</div></div></div>
+            <div class="mini-stat"><div class="mini-stat-icon" style="background:rgba(111,191,138,0.1)"><i class="ti ti-repeat" style="color:#6fbf8a;font-size:15px"></i></div><div><div class="mini-stat-label">Return Rate</div><div class="mini-stat-val">68%</div></div></div>
+            <div class="mini-stat"><div class="mini-stat-icon" style="background:rgba(111,159,191,0.1)"><i class="ti ti-star" style="color:#6f9fbf;font-size:15px"></i></div><div><div class="mini-stat-label">Avg Rating</div><div class="mini-stat-val">4.9 ★</div></div></div>
+            <div class="mini-stat"><div class="mini-stat-icon" style="background:rgba(191,111,111,0.1)"><i class="ti ti-users" style="color:#bf9f6f;font-size:15px"></i></div><div><div class="mini-stat-label">Total Clients</div><div class="mini-stat-val">284</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+new Chart(document.getElementById('revenueChart'),{
+  type:'bar',
+  data:{labels:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
+    datasets:[{label:'Revenue',data:[1820,2340,2100,2680,2450,3120,3200],
+      backgroundColor:['rgba(201,180,154,0.15)','rgba(201,180,154,0.15)','rgba(201,180,154,0.15)','rgba(201,180,154,0.15)','rgba(201,180,154,0.15)','rgba(201,180,154,0.15)','rgba(201,180,154,0.85)'],
+      borderColor:'rgba(201,180,154,0.4)',borderWidth:1,borderRadius:4}]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{backgroundColor:'#1a1a1c',borderColor:'rgba(255,255,255,0.08)',borderWidth:1,titleColor:'rgba(255,255,255,0.5)',bodyColor:'#c9b49a',callbacks:{label:c=>' $'+c.parsed.y.toLocaleString()}}},
+    scales:{x:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'rgba(255,255,255,0.3)',font:{size:11}},border:{display:false}},
+      y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'rgba(255,255,255,0.3)',font:{size:11},callback:v=>'$'+(v/1000).toFixed(1)+'k'},border:{display:false}}}}
+});
+</script>
+</body>
+</html>
