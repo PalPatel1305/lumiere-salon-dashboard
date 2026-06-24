@@ -11,7 +11,7 @@
   .logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:3px;color:#c9b49a}
   .logo span{color:#fff}
   .topbar-right{display:flex;align-items:center;gap:20px}
-  .date-badge{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:1px}
+  .date-badge{font-size:12px;color:rgba(255,255,255,0.65);letter-spacing:1px}
   .notif{width:32px;height:32px;border-radius:50%;border:0.5px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
   .notif i{font-size:15px;color:rgba(255,255,255,0.5)}
   .notif-dot{width:6px;height:6px;background:#c9b49a;border-radius:50%;position:absolute;top:6px;right:6px}
@@ -26,24 +26,24 @@
   .kpi-accent.green{background:#6fbf8a}
   .kpi-accent.red{background:#bf6f6f}
   .kpi-accent.blue{background:#6f9fbf}
-  .kpi-label{font-size:11px;letter-spacing:1.5px;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:10px;margin-left:12px}
-  .kpi-value{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:#fff;margin-left:12px;line-height:1}
-  .kpi-sub{font-size:11px;color:rgba(255,255,255,0.3);margin-top:6px;margin-left:12px;display:flex;align-items:center;gap:4px}
+  .kpi-label{font-size:11px;letter-spacing:1.5px;color:rgba(255,255,255,0.6);text-transform:uppercase;margin-bottom:10px;margin-left:12px}
+  .kpi-value{font-family:'DM Sans',sans-serif;font-size:32px;font-weight:700;color:#fff;margin-left:12px;line-height:1;font-variant-numeric:tabular-nums lining-nums}
+  .kpi-sub{font-size:11px;color:rgba(255,255,255,0.5);margin-top:6px;margin-left:12px;display:flex;align-items:center;gap:4px}
   .kpi-sub .up{color:#6fbf8a}
   .kpi-sub .down{color:#bf6f6f}
   .mid-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
   .card{background:#141416;border:0.5px solid rgba(255,255,255,0.07);border-radius:12px;padding:22px}
-  .card-title{font-size:11px;letter-spacing:1.5px;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between}
+  .card-title{font-size:11px;letter-spacing:1.5px;color:rgba(255,255,255,0.6);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between}
   .card-title span{font-size:10px;color:#c9b49a;letter-spacing:1px;cursor:pointer}
   .bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   .appt-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:0.5px solid rgba(255,255,255,0.05)}
   .appt-row:last-child{border-bottom:none}
-  .appt-time{font-size:11px;color:rgba(255,255,255,0.35);width:42px;flex-shrink:0}
+  .appt-time{font-size:11px;color:rgba(255,255,255,0.6);width:42px;flex-shrink:0}
   .appt-avatar{width:30px;height:30px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:#fff}
   .appt-info{flex:1;min-width:0}
   .appt-name{font-size:13px;color:#e8e0d5;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .appt-service{font-size:11px;color:rgba(255,255,255,0.3);margin-top:1px}
-  .appt-stylist{font-size:11px;color:rgba(255,255,255,0.25);text-align:right;flex-shrink:0}
+  .appt-service{font-size:11px;color:rgba(255,255,255,0.5);margin-top:1px}
+  .appt-stylist{font-size:11px;color:rgba(255,255,255,0.5);text-align:right;flex-shrink:0}
   .status-badge{font-size:10px;padding:3px 8px;border-radius:20px;flex-shrink:0;letter-spacing:0.5px}
   .status-confirmed{background:rgba(111,191,138,0.1);color:#6fbf8a;border:0.5px solid rgba(111,191,138,0.2)}
   .status-pending{background:rgba(201,180,154,0.1);color:#c9b49a;border:0.5px solid rgba(201,180,154,0.2)}
@@ -52,7 +52,7 @@
   .service-bar:last-child{margin-bottom:0}
   .service-bar-top{display:flex;justify-content:space-between;margin-bottom:5px}
   .service-name{font-size:12px;color:rgba(255,255,255,0.6)}
-  .service-pct{font-size:12px;color:rgba(255,255,255,0.35)}
+  .service-pct{font-size:12px;color:rgba(255,255,255,0.6)}
   .bar-track{height:3px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden}
   .bar-fill{height:100%;border-radius:2px}
   .stylist-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
@@ -60,16 +60,16 @@
   .stylist-avg{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;color:#fff;flex-shrink:0}
   .stylist-info{flex:1}
   .stylist-name{font-size:13px;color:#e8e0d5}
-  .stylist-count{font-size:11px;color:rgba(255,255,255,0.3)}
-  .stylist-rev{font-size:13px;color:rgba(255,255,255,0.5);text-align:right}
+  .stylist-count{font-size:11px;color:rgba(255,255,255,0.55)}
+  .stylist-rev{font-size:13px;color:rgba(255,255,255,0.75);text-align:right}
   .stars{color:#c9b49a;font-size:10px;letter-spacing:1px}
   .chart-wrap{position:relative;width:100%;height:180px}
   .mini-stat{background:#0d0d0e;border:0.5px solid rgba(255,255,255,0.05);border-radius:8px;padding:14px;display:flex;align-items:center;gap:12px}
   .mini-stat-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .mini-stat-label{font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:2px}
+  .mini-stat-label{font-size:11px;color:rgba(255,255,255,0.55);margin-bottom:2px}
   .mini-stat-val{font-size:16px;font-weight:500;color:#fff}
   .tab-bar{display:flex;gap:4px;margin-bottom:18px}
-  .tab{font-size:11px;letter-spacing:1px;color:rgba(255,255,255,0.3);padding:5px 12px;border-radius:20px;cursor:pointer;transition:all 0.2s}
+  .tab{font-size:11px;letter-spacing:1px;color:rgba(255,255,255,0.55);padding:5px 12px;border-radius:20px;cursor:pointer;transition:all 0.2s}
   .tab.active{background:rgba(201,180,154,0.12);color:#c9b49a;border:0.5px solid rgba(201,180,154,0.2)}
 </style>
 </head>
